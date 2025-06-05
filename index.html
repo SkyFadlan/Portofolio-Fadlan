@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Portfolio</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<style>
+
+    /* Project Title Styling */
+.item-folio__header {
+    padding: 15px 20px 0;
+    text-align: center;
+}
+
+.project-title {
+    color: #f96d00; /* Orange color to match your theme */
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.item-folio:hover .project-title {
+    color: #ff852a; /* Lighter orange on hover */
+}
+
+/* Adjust masonry layout for better spacing */
+.masonry__brick {
+    margin-bottom: 30px;
+}
+
+/* Button styling */
+.item-folio__btn {
+    padding: 15px;
+    text-align: center;
+}
+
+.google-drive-button, .github-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #f96d00;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.google-drive-button:hover, .github-button:hover {
+    background: #ff852a;
+    transform: translateY(-2px);
+}
+    /* Masonry grid layout */
+.masonry {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Jarak antar proyek */
+}
+
+.masonry__brick {
+    flex: 1 1 calc(33.333% - 20px); /* 3 kolom dengan jarak */
+    min-width: 300px; /* Lebar minimum setiap proyek */
+    margin-bottom: 20px;
+}
+
+.item-folio {
+    background: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.item-folio:hover {
+    transform: translateY(-5px);
+}
+
+.item-folio__thumb img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.item-folio__btn {
+    padding: 15px;
+    text-align: center;
+}
+
+.btn--primary {
+    transition: all 0.3s ease;
+}
+
+.btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+    .service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Agar form berada di tengah */
+.form-center {
+    margin: 0 auto;
+    background-color: #1a1a1a; /* latar belakang form */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Styling input dan textarea */
+.form-custom input,
+.form-custom textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-family: inherit;
+}
+
+/* Label form */
+.form-custom label {
+    color: #ddd;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Tombol submit */
+.btn--primary {
+    background-color: #f96d00;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn--primary:hover {
+    background-color: #ff852a;
+}
+
+/* Pusatkan text di elemen dengan class text-center */
+.text-center {
+    text-align: center;
+}
+
+.certificate-slider {
+    width: 90%;
+    margin: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.certificate-slider img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.s-certificate {
+  background-color: #111; /* hitam gelap */
+  color: white;
+  padding: 60px 0;
+}
+
+.s-certificate .section-heading {
+  color: white;
+}
+
+.school-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+</style>
+
+<body id="top">
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- site header
+    ================================================== -->
+    <header class="s-header">
+
+        
+        <nav class="header-nav-wrap">
+            <ul class="header-main-nav">
+                <li class="header-logo text-2xl-start">
+                    PORTOFOLIO
+                </li>
+                <li class="current"><a class="smoothscroll" href="#intro" title="intro">Intro</a></li>
+                <li><a class="smoothscroll" href="#about" title="about">About</a></li>
+                <li><a class="smoothscroll" href="#services" title="services">Skill</a></li>
+                <li><a class="smoothscroll" href="#works" title="works">Project</a></li>
+                <li><a class="smoothscroll" href="#certificate" title="works">Certificate</a></li>
+                <li><a class="smoothscroll" href="#contact" title="contact us">Contact</a></li>	
+            </ul>
+
+            <ul class="header-social">
+                <li><a href="https://www.instagram.com/zenaki313"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/SkyFadlan"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://linktr.ee/fadlanalanshori" target="_blank"><i class="fas fa-link" aria-hidden="true"></i></a></li>
+
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+    <!-- intro
+    ================================================== -->
+    <!-- intro
+================================================== -->
+<section id="intro" class="s-intro target-section">
+    <div class="row intro-content">
+        <div class="column large-6 mob-full intro-text">
+            <h3>Hello, I'm Muhammad Fadlan Alanshori</h3>
+            <h1>
+                Ngoding, ngulik, <br> berbagi karya. <br> Selamat datang di portofolio saya!
+            </h1>
+        </div>
+        
+        <div class="column large-6 mob-full intro-image">
+            <img src="assets/images/avatars/fadlan.png" 
+                 alt="Foto Fadlan Alanshori"
+                 style="border-radius: 50px; max-width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        </div>
+
+        <div class="intro-scroll">
+            <a href="#about" class="intro-scroll-link smoothscroll">
+                Scroll For More
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+
+        <div class="about-me">
+
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="column large-full">
+                    <h2 class="section-heading">About Me</h2>
+                </div>
+            </div>
+
+            <div class="row about-me__content" data-aos="fade-up">
+    <div class="column large-full about-me__text">
+        <p class="lead">
+            Halo! 👋 Saya Muhammad Fadlan Al Anshori, seorang Programmer yang bersemangat dan berdedikasi. 
+            Dengan keahlian di bidang HTML, CSS, PHP, dan Laravel, saya senang menciptakan solusi kreatif dan efisien 
+            untuk mewujudkan ide menjadi kenyataan. Perjalanan saya dimulai sejak tahun 2023, dan sejak itu saya telah mengerjakan berbagai proyek, 
+            mulai dari pembuatan portofolio berbasis web, website e-commerce, hingga aplikasi Android. 
+            Fokus saya adalah menghasilkan karya berkualitas tinggi sambil terus belajar dan berkembang.
+        </p>
+
+        <p>
+            Di luar pekerjaan, saya memiliki ketertarikan pada dunia olahraga, terutama bermain futsal, serta menonton anime. 
+            Kegiatan ini membantu saya menjaga keseimbangan hidup dan sering kali menjadi sumber inspirasi dalam bekerja.
+        </p>
+
+        <p>
+            Berikut adalah beberapa teknologi dan alat yang biasa saya gunakan:
+            <ul>
+                <li><strong>Bahasa Pemrograman:</strong> PHP, HTML, CSS, DART</li>
+                <li><strong>Framework:</strong> Laravel</li>
+                <li><strong>Alat Pendukung:</strong> Git, Figma, Visual Studio Code, XAMPP</li>
+            </ul>
+        </p>
+
+        <p>
+            Saya percaya bahwa kolaborasi dan semangat belajar adalah kunci untuk menciptakan sesuatu yang luar biasa. 
+            Mari kita wujudkan ide Anda menjadi kenyataan! 🚀
+        </p>
+    </div>
+</div>
+
+    
+            <div class="row about-me__buttons">
+    <div class="column large-half tab-full" data-aos="fade-up">
+        <a href="assets/images/CV_Muhammad_Fadlan_Alanshori.pdf" download class="btn btn--primaPry full-width">Download CV</a>
+    </div>
+</div>
+        </div> <!-- end about-me -->
+
+        <div class="about-experience">
+
+            <div class="row heading-block" data-aos="fade-up">
+                <div class="column large-full">
+                    <h2 class="section-heading">Education</h2>
+                </div>
+            </div>
+
+            <div class="row about-experience__timeline">
+
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <div class="timeline">
+
+                        <div class="timeline__icon-wrap">
+                            <span class="timeline__icon timeline__icon--work"></span>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <img src="assets/images/sd.jpg" alt="Logo SDN 04 Ciomas" style="width: 60px; height: auto; margin-bottom: 10px;">
+                                <p class="timeline__timeframe">2014 - 2020</p>
+                                <h3 class="item-title">SD Negeri 04 Ciomas</h3>
+                            </div>
+                            <div class="timeline__desc">
+                                <p>SD Negeri Ciomas 04 adalah sekolah dasar negeri yang berlokasi di Jl. 
+                                    Raya Ciomas Gang Sadar, Desa Ciomas Rahayu, Kecamatan Ciomas, Kabupaten Bogor,
+                                     Jawa Barat. Sekolah ini didirikan pada 1 Januari 1910 dan berada di bawah naungan
+                                      Kementerian Pendidikan dan Kebudayaan. Dengan sistem pembelajaran double shift dan enam hari 
+                                      sekolah dalam seminggu, SDN Ciomas 04 berkomitmen memberikan pendidikan berkualitas bagi 
+                                      anak-anak di wilayah Ciomas Rahayu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <div class="timeline">
+
+                        <div class="timeline__icon-wrap">
+                            <span class="timeline__icon timeline__icon--education"></span>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <img src="assets/images/smp.png" alt="Logo SMP IBG" style="width: 60px; height: auto; margin-bottom: 10px;">
+                                <p class="timeline__timeframe">2020 - 2023</p>
+                                <h3 class="item-title">SMP IBG</h3>
+                            </div>
+                            <div class="timeline__desc">
+                                <p>SMP Informatika Bina Generasi (SMP IBG) adalah sekolah menengah pertama swasta yang berlokasi di Jl. Taman Pagelaran No. 2, Padasuka, Ciomas, Bogor. Didirikan pada tahun 2008, sekolah ini memiliki akreditasi A dan fokus pada pengembangan kemampuan di bidang informatika. Program unggulan SMP IBG mencakup pelajaran komputer multimedia, desain grafis, dan editing film, yang biasanya diajarkan di jenjang SMK.</p>
+                            </div>
+                        </div>                   
+                    </div>
+                </div>
+
+                <div class="column large-half tab-full" data-aos="fade-up">
+                    <div class="timeline">
+
+                        <div class="timeline__icon-wrap">
+                            <span class="timeline__icon timeline__icon--education"></span>
+                        </div>
+
+                        <div class="timeline__block">
+                            <div class="timeline__bullet"></div>
+                            <div class="timeline__header">
+                                <img src="assets/images/smk.jpg" class="school-logo" alt="Logo SMKN 01 Ciomas">
+                                <p class="timeline__timeframe">2023 - Present</p>
+                                <h3 class="item-title">SMK Negeri 01 Ciomas</h3>
+                            </div> 
+                            <div class="timeline__desc">
+                                <p>SMK Negeri 1 Ciomas adalah sekolah menengah kejuruan negeri yang terletak di Jl. Raya Laladon, Desa Laladon, Kecamatan Ciomas, Kabupaten Bogor, Jawa Barat. Didirikan pada 9 Mei 2007, sekolah ini memiliki akreditasi A dan menawarkan berbagai program keahlian untuk mempersiapkan siswa memasuki dunia kerja atau melanjutkan pendidikan ke jenjang yang lebih tinggi.</p>
+                            </div>
+                        </div>                   
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- end about-experience -->
+
+    </section> <!-- end s-about -->
+
+
+    <!-- services
+    ================================================== -->
+    <section id="services" class="s-services ss-dark target-section">
+
+        <div class="shadow-overlay"></div>
+
+        <div class="row heading-block heading-block--center" data-aos="fade-up">
+            <div class="column large-full">
+                <h2 class="section-heading section-heading--centerbottom">Keahlian & Kemampuan</h2>
+<p class="section-desc">
+    Saya memiliki semangat dan tujuan untuk membantu bisnismu tampil menonjol di tengah persaingan.
+</p>
+
+            </div>
+        </div> <!-- end heading-block -->
+
+        <div class="row services-list block-large-1-3 block-medium-1-2 block-tab-full">
+
+            <div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/html5-color.svg" alt="HTML Icon" class="service-icon">
+        <h4 class="item-title">HTML</h4>
+        <p>
+            HTML (HyperText Markup Language) adalah fondasi utama dari semua halaman web. Saya menggunakannya untuk membuat struktur konten seperti teks, gambar, dan elemen interaktif dalam sebuah website.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/css3-color.svg" alt="CSS Icon" class="service-icon">
+        <h4 class="item-title">CSS</h4>
+        <p>
+            CSS (Cascading Style Sheets) digunakan untuk mendesain tampilan halaman web. Saya menggunakan CSS untuk membuat layout responsif, animasi, dan desain yang menarik agar website tampil profesional di berbagai perangkat.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/dart-color.svg" alt="Dart Icon" class="service-icon">
+        <h4 class="item-title">Dart</h4>
+        <p>
+            Dart adalah bahasa pemrograman utama yang digunakan dalam Flutter. Saya menggunakan Dart untuk membangun logika aplikasi mobile, membuat tampilan dinamis, dan menghubungkan ke database serta API.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/php-color.svg" alt="PHP Icon" class="service-icon">
+        <h4 class="item-title">PHP</h4>
+        <p>
+            PHP adalah bahasa pemrograman server-side yang saya gunakan untuk membangun backend website dan aplikasi, terutama untuk mengelola data, autentikasi pengguna, dan menghubungkan ke database seperti MySQL.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/firebase-color.svg" alt="Firebase Icon" class="service-icon">
+        <h4 class="item-title">Firebase</h4>
+        <p>
+            Firebase adalah platform backend dari Google yang saya gunakan untuk autentikasi pengguna, database real-time, dan penyimpanan cloud.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/laravel-color.svg" alt="Laravel Icon" class="service-icon">
+        <h4 class="item-title">Laravel</h4>
+        <p>
+            Laravel adalah framework PHP modern yang saya gunakan untuk membangun aplikasi web yang cepat, aman, dan terstruktur. Dengan Laravel, saya membuat autentikasi, dan fitur manajemen data.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/flutter-color (1).svg" alt="Flutter Icon" class="service-icon">
+        <h4 class="item-title">Flutter</h4>
+        <p>
+            Flutter adalah framework UI dari Google untuk membuat aplikasi mobile secara cross-platform (Android & iOS) dari satu basis kode. Saya menggunakannya untuk membuat aplikasi dengan antarmuka modern dan interaktif.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/figma-color.svg" alt="Figma Icon" class="service-icon">
+        <h4 class="item-title">Figma</h4>
+        <p>
+            Figma adalah alat desain UI/UX berbasis cloud yang saya gunakan untuk membuat prototype dan wireframe aplikasi maupun website sebelum dikembangkan. Ini memudahkan kolaborasi dan visualisasi desain.
+        </p>
+    </div>
+</div>
+
+<div class="column item-service" data-aos="fade-up">
+    <div class="item-service__content">
+        <img src="assets/images/icons/canva-color.svg" alt="Figma Icon" class="service-icon">
+        <h4 class="item-title">Canva</h4>
+        <p>
+            Canva adalah alat desain grafis berbasis cloud yang saya gunakan untuk membuat prototype, wireframe, serta elemen visual aplikasi maupun website secara cepat dan praktis.
+        </p>
+    </div>
+</div>
+
+
+
+        </div> <!-- end services-list -->
+
+    </section> <!-- end s-services -->
+
+
+    <!-- project -->
+<section id="works" class="s-works target-section">
+    <div class="row heading-block heading-block--center" data-aos="fade-up">
+        <div class="column large-full">
+            <h2 class="section-heading section-heading--centerbottom">Project Saya</h2>
+            <p class="section-desc">
+                Kumpulan proyek yang mencerminkan keterampilan, kreativitas, dan perkembangan saya. Setiap karya mewakili langkah dalam perjalanan saya—silakan jelajahi dan temukan inspirasi.
+            </p>
+        </div>
+    </div> <!-- end heading-block -->
+
+    <div class="masonry-wrap">
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+
+            <!-- Proyek 1 -->
+            <div class="masonry__brick" data-aos="fade-up">
+                <div class="item-folio">
+                    <div class="item-folio__header">
+                        <h3 class="project-title">Fourtify Weather</h3>
+                    </div>
+                    <div class="item-folio__thumb">
+                        <a href="" class="thumb-link" title="Fourtify Weather" data-size="1050x700">
+                            <img src="assets/images/project/project.jpg" 
+                                 srcset="assets/images/project/project.jpg 1x, assets/images/project/project.jpg 2x" alt="Fourtify Weather App">
+                        </a>
+                    </div>
+                    <div class="item-folio__btn">
+                        <a href="https://drive.google.com/drive/folders/1IRh4Nv7G0ACAlOx4zqsuj9x-wcYShszE?usp=drive_link" 
+                           class="google-drive-button" 
+                           title="Lihat di Google Drive" 
+                           target="_blank">
+                            <i class="fab fa-google-drive"></i>
+                            Lihat di Google Drive
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end masonry__brick -->
+
+            <!-- Proyek 2 -->
+            <div class="masonry__brick" data-aos="fade-up">
+                <div class="item-folio">
+                    <div class="item-folio__header">
+                        <h3 class="project-title">EDL Official Website</h3>
+                    </div>
+                    <div class="item-folio__thumb">
+                        <a href="" class="thumb-link" title="EDL Official Website" data-size="1050x700">
+                            <img src="assets/images/project/project2.png" 
+                                 srcset="assets/images/project/project2.png 1x, assets/images/project/project2.png 2x" alt="EDL Official Website">
+                        </a>
+                    </div>
+                    <div class="item-folio__btn">
+                        <a href="https://github.com/ijal-fahri/edlofficial" 
+                           class="github-button" 
+                           title="Lihat di Github" 
+                           target="_blank">
+                            <i class="fab fa-github"></i>
+                            Lihat di Github
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end masonry__brick -->
+
+            <!-- Proyek 3 -->
+            <div class="masonry__brick" data-aos="fade-up">
+                <div class="item-folio">
+                    <div class="item-folio__header">
+                        <h3 class="project-title">Laundry Management System</h3>
+                    </div>
+                    <div class="item-folio__thumb">
+                        <a href="" class="thumb-link" title="Laundry Management System" data-size="1050x700">
+                            <img src="assets/images/project/project3.png" 
+                                 srcset="assets/images/project/project3.png 1x, assets/images/project/project3.png 2x" alt="Laundry Management System">
+                        </a>
+                    </div>
+                    <div class="item-folio__btn">
+                        <a href="https://github.com/SkyFadlan/Laundry" 
+                           class="github-button" 
+                           title="Lihat di Github" 
+                           target="_blank">
+                            <i class="fab fa-github"></i>
+                            Lihat di Github
+                        </a>
+                    </div>
+                </div>
+            </div> <!-- end masonry__brick -->
+        </div> <!-- end masonry -->
+    </div> <!-- end masonry-wrap -->
+</section>
+
+    <section id="certificate" class="s-certificate target-section">
+
+  <div class="row heading-block" data-aos="fade-up">
+    <div class="column large-full">
+      <h2 class="section-heading">My Certificates</h2>
+    </div>
+  </div>
+
+  <div class="swiper-container certificate-slider" data-aos="fade-up">
+    <div class="swiper-wrapper">
+        <!-- Sertifikat 1 -->
+        <div class="swiper-slide">
+            <a href="assets/images/certificate/certificate.jpg" data-lightbox="certificates">
+                <img src="assets/images/certificate/certificate.jpg" alt="Sertifikat 1">
+            </a>
+        </div>
+        
+        <!-- Sertifikat 2 -->
+        <div class="swiper-slide">
+            <a href="assets/images/certificate/certificate1.png" data-lightbox="certificates">
+                <img src="assets/images/certificate/certificate1.png" alt="Sertifikat 2">
+            </a>
+        </div>
+    </div>
+
+    <!-- Tombol navigasi -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+
+</section>
+
+
+
+   <!-- Contact Section
+================================================== -->
+<section id="contact" class="s-contact ss-dark target-section">
+
+    <div class="row heading-block" data-aos="fade-up">
+        <div class="column large-full">
+            <h2 class="section-heading">Hubungi Saya</h2>
+        </div>
+    </div>
+
+    <div class="row contact-main" data-aos="fade-up">
+        <div class="column large-full">
+            <p class="section-desc">
+                Saya senang terhubung, mendengarkan, dan membantu Anda. Mari bekerja sama untuk menciptakan sesuatu yang luar biasa. Ubah ide Anda menjadi produk yang lebih hebat. 
+                <a href="mailto:fadlanalanshori@gmail.com"><strong>Hubungi saya via email</strong></a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Formulir Kontak -->
+    <div class="row contact-form-wrapper" data-aos="fade-up">
+        <div class="column large-6 medium-8 small-full form-center">
+            <form action="mailto:fadlanalanshori@gmail.com" method="POST" enctype="text/plain" class="form-custom">
+                <fieldset>
+                    <div class="form-field">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email Anda" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="pesan">Pesan</label>
+                        <textarea id="pesan" name="pesan" placeholder="Tulis pesan Anda di sini..." rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-field text-center">
+                        <button type="submit" class="btn btn--primary">Kirim Pesan</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+        <!-- Info Kontak & Sosial Media -->
+    <div class="row contact-infos" data-aos="fade-up" data-aos-anchor=".contact-main">
+        <div class="column large-7 medium-full contact-social">
+            <h4>Media Sosial</h4>
+            <ul>
+                <li><a href="https://instagram.com/zenaki313" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+
+    </div> <!-- end contact-infos -->
+
+</section> <!-- end s-contact -->
+
+
+
+        <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row">
+            <div class="column large-full ss-copyright">
+                <span>© Copyright Epitome 2019</span> 
+                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            </div>            
+
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end photoSwipe background -->
+
+    <!-- Java Script
+    ================================================== -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.certificate-slider', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Initialize Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'showImageNumberLabel': false
+        });
+    </script>
+</body>
+</html>
